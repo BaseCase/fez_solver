@@ -22,11 +22,11 @@ class Jumbler:
 
     def look_for_words(self, groups):
         self.found_words = []
-        self.dsf(groups[0], groups[1:], "")
+        self.dfs(groups[0], groups[1:], "")
         return self.found_words
 
 
-    def dsf(self, head, tail, word_so_far):
+    def dfs(self, head, tail, word_so_far):
         if not tail: # base case. we're on the bottom row
             for letter in head:
                 if self.is_word(word_so_far + letter):
@@ -36,7 +36,7 @@ class Jumbler:
                 if not self.maybe_is_word(word_so_far + letter):
                     continue
                 else:
-                    self.dsf(tail[0], tail[1:], word_so_far + letter)
+                    self.dfs(tail[0], tail[1:], word_so_far + letter)
 
 
     def is_word(self, candidate):
