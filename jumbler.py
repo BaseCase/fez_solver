@@ -1,12 +1,24 @@
+from itertools import permutations
+
+import math
+
+
 class Jumbler:
-    def __init__(self, spell_checker, groups):
+    def __init__(self, spell_checker, groups, logging=False):
+        self.logging = logging
         self.spell_checker = spell_checker
         self.groups = groups
 
     def get_all_words(self):
-        # will need to do this for all permutations of self.groups
-        words = self.look_for_words(self.groups)
-        return words
+        total_perms = math.factorial(len(self.groups))
+        current_perm = 1
+        words = []
+
+        for ordering in permutations(self.groups):
+            if self.logging: print "finding words for ordering {0} out of {1}".format(current_perm, total_perms)
+            current_perm += 1
+            words += self.look_for_words(ordering)
+        return list(set(words))
 
     def look_for_words(self, groups):
         self.found_words = []
