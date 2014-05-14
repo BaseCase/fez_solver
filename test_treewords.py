@@ -24,6 +24,10 @@ class TreewordsTest(TestCase):
         word = "tree"
         self.assertTrue(self.t.is_word(word))
 
+    def test_it_can_tell_you_if_a_part_of_a_word_is_not_actually_a_word(self):
+        word = "tre"
+        self.assertFalse(self.t.is_word(word))
+
     def test_it_short_circuits_as_soon_as_it_knows_it_isnt_a_word(self):
         fake_word = "abzq"
         self.assertFalse(self.t.is_word(fake_word))
@@ -35,3 +39,4 @@ class TreewordsTest(TestCase):
     def test_it_can_tell_you_if_you_fail_the_maybe_test(self):
         maybe_word = "trez"
         self.assertFalse(self.t.maybe_is_word(maybe_word))
+

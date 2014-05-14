@@ -21,7 +21,7 @@ class Treewords:
         parent = self.tree
         for letter in word + '\0':
             if letter == '\0':
-                return True
+                return '\0' in parent
             if letter in parent:
                 parent = parent[letter]
             else:
