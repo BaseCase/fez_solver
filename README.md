@@ -10,6 +10,9 @@ To spell out the answer, you are given eight blocks, each of which has four lett
 
 So, I decided to make a computer program that could generate all of the possible English language words I could make with those blocks. This cut the choice space down to just 131 words:
 
+
+## Words
+
 > albanite
 > alkannin
 > althaein
